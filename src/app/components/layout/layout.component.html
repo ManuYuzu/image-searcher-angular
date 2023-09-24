@@ -20,18 +20,23 @@
           class="layout-content-main__button--text">Subir Portada</span>
       </button>
       <hr class="layout-content-main__separator">
-      <span>Texto 2</span>
-      <div>
-        <input type="text" [(ngModel)]="search">
-        <button (click)="sendRequest()">Bñotn</button>
+      <span class="layout-content-main__text">
+        O también puede elegir una imagen de portada buscando una temática en nuestro archivo de imágenes:
+      </span>
+      <div class="layout-content-main__search-box">
+        <input type="text" [(ngModel)]="search" (keydown.enter)="sendRequest()"
+          class="layout-content-main__search-box--input text-box">
+        <button (click)="sendRequest()" class="layout-content-main__search-box--button button-primary">Buscar</button>
       </div>
       <hr class="layout-content-main__separator">
-      <span>Texto 3</span>
-      <div *ngIf="imagesResult && imagesResult.length === 0">No results found</div>
-      <div>
-        <img *ngFor="let image of imagesResult" [src]="image.largeImageURL" [alt]="image.tags">
+      <span *ngIf="imagesResult" class="layout-content-main__text">Resultados según su búsqueda</span>
+      <div *ngIf="imagesResult && imagesResult.length === 0" class="layout-content-main__text">No hay ningun texto de
+        busqueda</div>
+      <div class="layout-content-main__results">
+        <img *ngFor="let image of imagesResult" [src]="image.largeImageURL" [alt]="image.tags"
+          class="layout-content-main__results--image">
       </div>
-      <span></span>
+      <span *ngIf="imagesResult" class="layout-content-main__annotation">Imágenes cortesía de Pixabay</span>
     </main>
   </div>
 </div>
