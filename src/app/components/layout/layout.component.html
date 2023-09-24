@@ -1,1 +1,37 @@
-<p>layout works!</p>
+<div class="layout">
+  <header class="layout-header">
+    <span id="image-icon" class="layout-header__icon">Iconito</span>
+    <span class="layout-header__text">Portada</span>
+    <span id="info-icon" class="layout-header__icon">Iconito 2</span>
+  </header>
+  <div class="layout-content">
+    <aside class="layout-content-aside">
+      <span class="layout-content-aside__title title">Portada actual</span>
+      <div class="layout-content-aside__image"><img src="assets/images/placeholder.jpg" alt="Current Image">
+      </div>
+      <span class="layout-content-aside__size">545 x 310px</span>
+      <button class="layout-content-aside__button button-primary">Guardar cambios</button>
+    </aside>
+    <main class="layout-content-main">
+      <span class="layout-content-main__title title">Cambiar portada</span>
+      <span class="layout-content-main__text">Puede subir una imagen nueva de portada</span>
+      <button class="layout-content-main__button button-primary">
+        <span class="layout-content-main__button--icon">Iconito 3</span><span
+          class="layout-content-main__button--text">Subir Portada</span>
+      </button>
+      <hr class="layout-content-main__separator">
+      <span>Texto 2</span>
+      <div>
+        <input type="text" [(ngModel)]="search">
+        <button (click)="sendRequest()">Bñotn</button>
+      </div>
+      <hr class="layout-content-main__separator">
+      <span>Texto 3</span>
+      <div *ngIf="imagesResult && imagesResult.length === 0">No results found</div>
+      <div>
+        <img *ngFor="let image of imagesResult" [src]="image.largeImageURL" [alt]="image.tags">
+      </div>
+      <span></span>
+    </main>
+  </div>
+</div>

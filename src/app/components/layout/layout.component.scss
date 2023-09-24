@@ -1,0 +1,110 @@
+.layout {
+  margin: 3em;
+
+    &-header {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 1em;
+    margin: 3em 0 2em;
+    padding: .5em 1em;
+
+    &__text {
+      text-transform: uppercase;
+    }
+
+    #info-icon {
+      margin-left: auto;
+    }
+  }
+
+  &-content {
+      display: flex;
+      flex-direction: row;
+      gap: 3%;
+      width: 100%;
+      min-height: auto;
+
+      &-aside {
+        background-color: var(--color-grey-light);
+        width: 32%;
+        height: fit-content;
+        padding: 1em 1.75em;
+        display: flex;
+        flex-direction: column;
+
+        &__title {
+          margin-right: auto;
+          margin-bottom: 18px;
+        }
+
+        &__image {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          img {
+            width: 100%;
+            border: 2px solid var(--color-grey-dark);
+            border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -moz-border-radius: 2px;
+            -ms-border-radius: 2px;
+            -o-border-radius: 2px;
+          }
+        }
+
+        &__size {
+          align-self: center;
+          font-size: var(--font-size-xs);
+          color: var(--color-grey-dark);
+          margin-top: .5em;
+          margin-bottom: 2em;
+        }
+
+        &__button {
+          padding: 1em 3em;
+        }
+      }
+
+      &-main {
+        width: 65%;
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+
+        &__button {
+          margin-left: 0;
+
+          &--text {
+            margin-left: 16px;
+            margin-right: 48px;
+          }
+        }
+
+        &__separator {
+          width: 100%;
+          height: 2px;
+          border: none;
+          background-color: var(--color-grey-light);
+        }
+      }
+    }
+
+  @media (max-width: 800px) {
+    &-content {
+      flex-direction: column;
+      gap: 2em;
+
+      &-aside {
+        width: auto;
+      }
+
+      &-main {
+        width: auto;
+      }
+    }
+  }
+}
