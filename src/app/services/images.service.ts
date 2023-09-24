@@ -19,6 +19,6 @@ export class ImagesService {
   search(params: string) {
     params.replaceAll(' ', '+')
 
-    return this.net.get(`${this.apiUrl}?key=${this.apiKey}&q=${params}&image_type=photo`)
+    return this.net.get(`${this.apiUrl}?key=${this.apiKey}&q=${params}&per_page=12`)
   }
 }
