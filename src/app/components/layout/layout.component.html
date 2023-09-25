@@ -1,8 +1,8 @@
 <div class="layout">
   <header class="layout-header">
-    <span id="image-icon" class="layout-header__icon">Iconito</span>
+    <img src="assets/images/image-landscape.svg" alt="Image icon" id="image-icon" class="layout-header__icon">
     <span class="layout-header__text">Portada</span>
-    <span id="info-icon" class="layout-header__icon">Iconito 2</span>
+    <img src="assets/images/info-circle.svg" alt="Info icon" id="info-icon" class="layout-header__icon">
   </header>
   <div class="layout-content">
     <aside class="layout-content-aside">
@@ -16,7 +16,7 @@
       <span class="layout-content-main__title title">Cambiar portada</span>
       <span class="layout-content-main__text">Puede subir una imagen nueva de portada</span>
       <button class="layout-content-main__button button-primary">
-        <span class="layout-content-main__button--icon">Iconito 3</span><span
+        <img src="assets/images/upload.svg" alt="Upload Icon" class="layout-content-main__button--icon"><span
           class="layout-content-main__button--text">Subir Portada</span>
       </button>
       <hr class="layout-content-main__separator">
@@ -29,14 +29,15 @@
         <button (click)="sendRequest()" class="layout-content-main__search-box--button button-primary">Buscar</button>
       </div>
       <hr class="layout-content-main__separator">
-      <span *ngIf="imagesResult" class="layout-content-main__text">Resultados según su búsqueda</span>
-      <div *ngIf="imagesResult && imagesResult.length === 0" class="layout-content-main__text">No hay ningun texto de
-        busqueda</div>
+      <span class="layout-content-main__text">Resultados según su búsqueda:</span>
+      <div *ngIf="imagesResult && imagesResult.length === 0" class="layout-content-main__text">No hay resultados para su
+        búsqueda.</div>
       <div class="layout-content-main__results">
         <img *ngFor="let image of imagesResult" [src]="image.largeImageURL" [alt]="image.tags"
           class="layout-content-main__results--image">
       </div>
-      <span *ngIf="imagesResult" class="layout-content-main__annotation">Imágenes cortesía de Pixabay</span>
+      <span *ngIf="imagesResult && imagesResult.length !== 0" class="layout-content-main__annotation">Imágenes cortesía
+        de Pixabay</span>
     </main>
   </div>
 </div>
