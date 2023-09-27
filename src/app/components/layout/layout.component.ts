@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ImagesService } from 'src/app/services/images.service';
+import { APIResults, APIResponse } from 'src/app/interfaces/APIInterfaces';
 
 @Component({
   selector: 'app-layout',
@@ -15,7 +16,7 @@ export class LayoutComponent {
   /**
    * An array of results given by the API in response of the user request.
    */
-  imagesResult: any
+  imagesResult: Array<APIResults> | undefined = []
 
   constructor(private imgService: ImagesService) {}
 
@@ -24,9 +25,10 @@ export class LayoutComponent {
    * of images that we should have printed on screen everytime we input a text.
    */
   sendRequest(): void {
-    this.imgService.search(this.search).subscribe((res: any) => {
-      console.log(res.hits);
+    if(this.search === '') return
 
+    this.imgService.search(this.search).subscribe((res: Partial<APIResponse> | APIResponse) => {
+      console.log(res);
       this.imagesResult = res.hits
     })
   }
