@@ -28,7 +28,6 @@ export class LayoutComponent {
     if(this.search === '') return
 
     this.imgService.search(this.search).subscribe((res: Partial<APIResponse> | APIResponse) => {
-      console.log(res);
       this.imagesResult = res.hits
     })
   }
